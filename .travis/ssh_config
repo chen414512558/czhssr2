@@ -1,0 +1,42 @@
+Host nuanxin 
+# 别名
+User nuanxin 
+# 用户名
+HostName 101.200.122.68
+# ip地址
+Port 22
+# ssh的端口号
+StrictHostKeyChecking no
+# 检查键盘热键 基本不变
+IdentityFile ~/.ssh/id_rsa
+# 当前的私钥文件
+IdentitiesOnly yes
+# 只允许私钥登录
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+# 前面两行防止超时被踢
+LogLevel INFO
+
+Host czh
+# 别名
+User root 
+# 用户名
+HostName 47.95.238.142
+# ip地址
+Port 22
+# ssh的端口号
+StrictHostKeyChecking no
+# 检查键盘热键 基本不变
+IdentityFile ~/.ssh/id_rsa
+# 当前的私钥文件
+IdentitiesOnly yes
+# 只允许私钥登录
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+# 前面两行防止超时被踢
+LogLevel INFO
+

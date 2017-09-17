@@ -1,0 +1,27 @@
+# node_modules
+node_modules/*
+.idea/*
+#build/*
+npm-debug.log
+dest/
+dist/
+**/dest
+
+# ziped tar files
+*.tar.gz
+*.tgz
+
+# nohup File
+nohup.out
+
+# temperary files
+*.bak
+*.swp
+
+# compiled file
+*.so
+eggs/
+.eggs/
+*.egg
+
+!.babelrc

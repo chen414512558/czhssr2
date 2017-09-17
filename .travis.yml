@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+- 7.6.0
+cache:
+  directories:
+  - node_modules
+script:
+- npm run gulp:prod
+- npm test
+addons:
+  ssh_known_hosts: 47.95.238.142
+#  apt:
+#    packages:
+#    - sshpass
+after_success:
+# - export SSHPASS=$DEPLOY_PASS
+# sshpass -p $PASSWORD
+  - scp -o stricthostkeychecking=no -r ./build ./reports root@47.95.238.142:~/mynode/czh-ssr/
+#- scp -o stricthostkeychecking=no -r  $USER@47.95.238.142:~/mynode/czh-ssr/
+  - scp -o stricthostkeychecking=no ./package.json root@47.95.238.142:~/mynode/czh-ssr/
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_699cb38bf589_key -iv $encrypted_699cb38bf589_iv
+    -in id_rsa.enc -out .travis/id_rsa -d
+  - mv .travis/id_rsa ~/.ssh -f
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp .travis/ssh_config ~/.ssh/config
