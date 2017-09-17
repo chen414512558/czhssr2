@@ -16,7 +16,6 @@ after_success:
 # - export SSHPASS=$DEPLOY_PASS
 # sshpass -p $PASSWORD
   - scp -o stricthostkeychecking=no -r ./build ./reports root@47.95.238.142:~/mynode/czh-ssr/
-#- scp -o stricthostkeychecking=no -r  $USER@47.95.238.142:~/mynode/czh-ssr/
   - scp -o stricthostkeychecking=no ./package.json root@47.95.238.142:~/mynode/czh-ssr/
 
 before_install:
